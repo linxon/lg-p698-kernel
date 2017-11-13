@@ -1,0 +1,19 @@
+--- kernel/timeconst.pl.orig	2011-08-27 11:23:30.000000000 +0400
++++ kernel/timeconst.pl	2017-11-09 13:25:58.048071000 +0300
+@@ -370,7 +370,7 @@
+ 	}
+ 
+ 	@val = @{$canned_values{$hz}};
+-	if (!defined(@val)) {
++	if (!@val) {
+ 		@val = compute_values($hz);
+ 	}
+ 	output($hz, @val);
+--- scripts/gcc-wrapper.py.orig	2011-08-27 11:23:31.000000000 +0400
++++ scripts/gcc-wrapper.py	2017-11-09 13:11:53.684517000 +0300
+@@ -1,4 +1,4 @@
+-#! /usr/bin/env python
++#! /usr/bin/env python2
+ # -*- coding: utf-8 -*-
+ 
+ # Copyright (c) 2011, Code Aurora Forum. All rights reserved.
