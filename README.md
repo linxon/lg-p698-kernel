@@ -53,7 +53,7 @@
   ...
 
   # cat /dev/mtd/mtd0 > /data/boot.img
-  # ^D
+  ^D
   linxon@cirno-chan: ~/WorkDir $ adb pull /data/boot.img
   ~~~
 
@@ -85,17 +85,33 @@
   ~~~
   и залить на смартфон с помощью adb:
   ~~~
-  linxon@cirno-chan: ~/WorkDir/boot $ adb push myboot.img /data/
+  linxon@cirno-chan: ~/WorkDir/boot $ adb push myboot.img /data
   ~~~
 
 * Пишем измененный раздел **boot** в **/dev/mtd/mtd0** (убедимся, что у нас присутствует на смартфоне утилита [flash_image](https://github.com/linxon/lg-p698-kernel/raw/master/tools/flash_image.tar.xz)):
   ~~~
   linxon@cirno-chan: ~/WorkDir/boot $ adb shell
   # flash_image --help
-  # usage: flash_image partition file.img
+  usage: flash_image partition file.img
   #
   # cat /dev/zero >> /dev/mtd/mtd0
-  # flash_image boot /data/myboot.img
+  flash_image boot /data/myboot.img
+  flashing boot from /data/myboot.img
+  mtd: successfully wrote block at b10c00000000
+  mtd: successfully wrote block at b10c00020000
+  mtd: successfully wrote block at b10c00040000
+  mtd: successfully wrote block at b10c00060000
+  mtd: successfully wrote block at b10c00080000
+  ...
+  ...
+  mtd: successfully wrote block at b10c00000000
   # reboot
   linxon@cirno-chan: ~/WorkDir/boot $
+  ~~~
+
+* Ждем перезагрузки смартфона и проверяем время компиляции ядра:
+  ~~~
+  linxon@cirno-chan: ~/WorkDir/boot $ adb shell
+  # uname -a
+  Linux localhost 2.6.35.11-linxon #1 PREEMPT Thu Feb 17 18:24:59 MSD 2016 armv6l GNU/Linux
   ~~~
