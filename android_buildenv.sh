@@ -35,10 +35,10 @@ INSTALL_PATH="${TC_DIR}/bin"
 INSTALL_MOD_PATH="${MODULES_DIR}"
 
 if ! [ -f "${WORK_DIR}/.patch.applied" ] && [ -d "${PATCHES_DIR}" ]; then
-	DIFF_LIST=$(ls "${WORK_DIR}"/diff | grep -E "*.diff|*.patch$")
+	DIFF_LIST=$(ls "${PATCHES_DIR}" | grep -E "*.diff|*.patch$")
 	for f in ${DIFF_LIST} ; do
 		echo "Apply patch >>> ${PATCHES_DIR}/${f}"
-		patch -p0 < "${WORK_DIR}/diff/${f}" && touch "${WORK_DIR}/.patch.applied" || {
+		patch -p0 < "${PATCHES_DIR}/${f}" && touch "${WORK_DIR}/.patch.applied" || {
 			echo "Error: can't apply patch — ${PATCHES_DIR}/${f}"
 			exit 1
 		}
