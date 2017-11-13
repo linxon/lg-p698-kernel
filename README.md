@@ -46,7 +46,7 @@
   linxon@cirno-chan: ~/WorkDir $ adb shell
   # cat /proc/mtd
   dev:    size   erasesize  name
-  mtd0: 00500000 00020000 "boot" <<<----
+  mtd0: 00500000 00020000 "boot" <<<---
   mtd1: 0dc00000 00020000 "system"
   mtd2: 00500000 00020000 "recovery"
   mtd3: 002c0000 00020000 "lgdrm"
@@ -95,7 +95,8 @@
   usage: flash_image partition file.img
   #
   # cat /dev/zero >> /dev/mtd/mtd0
-  flash_image boot /data/myboot.img
+  write: No space left on device <<<--- это нормально
+  # flash_image boot /data/myboot.img
   flashing boot from /data/myboot.img
   mtd: successfully wrote block at b10c00000000
   mtd: successfully wrote block at b10c00020000
