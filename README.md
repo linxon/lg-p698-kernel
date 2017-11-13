@@ -17,19 +17,7 @@
   ~~~
 
 * После чего, изменить пути к toolchain'у в скрипте
-  ~~~
-  # Current work dir (root of kernel directory)
-  WORK_DIR="$(pwd)"
-
-  # Toolchain "arm-*" (for LG-P698 — arm-2009q3-v67 or arm-2009q3-v68)
   **TC_DIR="/tmp/linxon-tmp-files/arm-2009q3"**
-
-  # Modules dir (for linux kernel)
-  MODULES_DIR="${WORK_DIR}/ready-modules"
-
-  # Directory for searching patches...
-  PATCHES_DIR="${WORK_DIR}/patches"
-  ~~~
 
 * Теперь, вы можете использовать этот скрипт для модификации/компиляции ядра
   ~~~
