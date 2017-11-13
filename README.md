@@ -88,7 +88,7 @@
   linxon@cirno-chan: ~/WorkDir/boot $ adb push myboot.img /data/
   ~~~
 
-* Пишем измененный раздел **boot** в **/dev/mtd/mtd0** (убедимся, что у нас присутствует на смартфоне утилита **flash_image**):
+* Пишем измененный раздел **boot** в **/dev/mtd/mtd0** (убедимся, что у нас присутствует на смартфоне утилита [flash_image](https://github.com/linxon/lg-p698-kernel/raw/master/tools/flash_image.tar.xz)):
   ~~~
   linxon@cirno-chan: ~/WorkDir/boot $ adb shell
   # flash_image --help
