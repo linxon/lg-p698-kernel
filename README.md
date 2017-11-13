@@ -74,12 +74,12 @@
   linxon@cirno-chan: ~/WorkDir/boot $
   ~~~
 
-* Заменить образ ядра zImage своим, который находится в 
+* Заменить старый образ ядра zImage своим, который находится в 
   ~~~
   Kernel: arch/arm/boot/zImage is ready
   ~~~
   
-* Сформировать новый образ командой:
+* Сформировать новый образ раздела командой:
   ~~~
   linxon@cirno-chan: ~/WorkDir/boot $ abootimg --create myboot.img -f bootimg.cfg -k zImage -r initrd.img
   ~~~
